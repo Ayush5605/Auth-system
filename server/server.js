@@ -6,6 +6,8 @@ import cookieParser from "cookie-parser";
 import mongoDB from "./config/mongodb.js";
 import userModel from "./Models/userModels.js";
 import authRouter from "./Routes/AuthRoutes.js";
+import userRouter from "./Routes/UserRoutes.js";
+import { getUserData } from "./Controllers/userController.js";
 
 
 
@@ -26,6 +28,9 @@ app.listen(port,()=>{
 
 app.use('/api/auth',authRouter);
 
+app.use("/api/user",userRouter,getUserData);
+
 app.get("/",(req,res)=>{
     res.send("Hello");
 })
+
