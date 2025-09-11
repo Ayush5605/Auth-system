@@ -16,9 +16,11 @@ const app=express();
 const port=process.env.port || 4000;
 mongoDB();
 
+const allowedOrigins=['http://localhost:5174'];
+
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors({credentials:true}));
+app.use(cors({origin:allowedOrigins,credentials:true}));
 
 app.listen(port,()=>{
     console.log(`Listening on port ${port}`
