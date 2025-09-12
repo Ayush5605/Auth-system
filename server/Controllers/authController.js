@@ -53,7 +53,11 @@ export const register=async(req,res)=>{
            .then(info => console.log("✅ Sent:", info.messageId))
            .catch(err => console.error("❌ Error:", err));
 
-             return res.json({success:true});
+             return res.json({success:true,userData:{
+                name:user.name,
+                email:user.email,
+                isAccountVerified:user.isAccountVerified
+             }});
 
 
     }catch(err){
@@ -95,7 +99,11 @@ export const login=async(req,res)=>{
                 maxAge:7*24*60*60*1000,
             });
 
-            return res.json({success:true,message:"Welcome user!"});
+            return res.json({success:true,message:"Welcome user!",userData:{
+                name:user.name,
+                email:user.email,
+                isAccountVerified:user.isAccountVerified,
+            }});
 
     }catch(err){
         return ({success:false,message:err.message})

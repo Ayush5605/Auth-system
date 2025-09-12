@@ -3,9 +3,9 @@ import userModel from "../Models/userModels.js";
 export const getUserData=async(req,res,next)=>{
     try{
 
-        const {userId}=req.body;
+        const {email}=req.body;
 
-        const user=await userModel.findById({_id:"userId"});
+        const user=await userModel.findOne({email});
 
         if(!user){
             return res.json({success:false,message:"User not registered!"});
