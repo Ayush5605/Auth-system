@@ -16,7 +16,11 @@ const app=express();
 const port=process.env.port || 4000;
 mongoDB();
 
+<<<<<<< HEAD
 const allowedOrigins=['http://localhost:5173','http://localhost:5174'];
+=======
+const allowedOrigins=['http://localhost:5174'];
+>>>>>>> 406166e3f2b5089f57201aedbc715e7373c057ee
 
 app.use(express.json());
 app.use(cookieParser());
